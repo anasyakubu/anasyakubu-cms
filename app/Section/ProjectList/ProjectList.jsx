@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCards from "../../components/ProjectCard";
+import "./ProjectList.scss";
 
 const ProjectList = () => {
   return (

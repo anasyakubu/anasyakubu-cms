@@ -10,7 +10,7 @@ const TestimonyList = () => {
           <h6 className="text-[#f8f8f8] text-3xl">People Testimonials</h6>
         </div>
         <div className="mt-5">
-          <div className="">
+          <div className="p-1 space-y-2 lg:grid lg:grid-cols-2 lg:gap-x-6 lg:space-y-0">
             <TestimonyListCard />
             <TestimonyListCard />
             <TestimonyListCard />

@@ -9,12 +9,12 @@ const ProjectList = () => {
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 8; // Number of tasks per page
+  const projectsPerPage = 30; // Number of tasks per page
 
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:9000/projectList")
+      .get("https://anasyakubu-cms-api.onrender.com/projectList")
       .then((result) => {
         const fetchProjects = result.data.map((blog) => {
           // Convert createdAt string to a Date object
@@ -75,7 +75,7 @@ const ProjectList = () => {
           <div className="">
             {loading ? (
               <div className="flex justify-center">
-                <div className="spinner"></div>
+                <div className="spinner">Loading</div>
               </div>
             ) : (
               <div className="p-1 space-y-2 lg:grid lg:grid-cols-4 lg:gap-x-6 lg:space-y-0">

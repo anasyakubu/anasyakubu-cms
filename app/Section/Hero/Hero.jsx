@@ -37,7 +37,7 @@ const Hero = () => {
 
               <div className="mt-6 button">
                 <Link
-                  href="/sign"
+                  href="/sign-in"
                   className="btn p-2 text-sm bg-black text-white pr-5 pl-5 outline-none border border-black rounded-lg shadow-lg"
                 >
                   Manage Your Projects

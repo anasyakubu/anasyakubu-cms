@@ -14,6 +14,7 @@ const ProjectCards = ({
   projectLink,
   handleDelete,
   id,
+  color,
 }) => {
   return (
     <div className="ProjectCards">
@@ -31,7 +32,7 @@ const ProjectCards = ({
             <p className="mt-3 text-sm">{details}</p>
             <div className="mt-3 flex justify-between">
               <div
-                className={`text-[10px] min-w-[50px] px-[8px] py-1 rounded-[30px] bg-green-600 text-white ppR flex items-center justify-between gap-2`}
+                className={`text-[10px] min-w-[50px] px-[8px] py-1 rounded-[30px] ${color} text-white ppR flex items-center justify-between gap-2`}
               >
                 {status}
                 <svg
@@ -39,7 +40,7 @@ const ProjectCards = ({
                   fill="currentColor"
                   strokeWidth="0"
                   viewBox="0 0 16 16"
-                  className="text-green-400"
+                  className={`${color}`}
                   height="8"
                   width="8"
                   xmlns="http://www.w3.org/2000/svg"

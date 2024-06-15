@@ -17,9 +17,13 @@ const ProjectList = () => {
     axios
       .get("https://anasyakubu-cms-api.onrender.com/projectList")
       .then((result) => {
-        const fetchProjects = result.data.map((blog) => {
+        const fetchProjects = result.data.map((project) => {
           // Convert createdAt string to a Date object
-          const createdAtDate = new Date(blog.createdAt);
+          const createdAtDate = new Date(project.createdAt);
+          const live = project.status;
+
+          // Determine the bgColor based on the status
+          const bgColor = live === "Live" ? "text-green-400" : "text-red-600";
 
           // Options for formatting the date
           const options = {
@@ -37,8 +41,9 @@ const ProjectList = () => {
 
           // Return the blog object with formatted createdAt
           return {
-            ...blog,
+            ...project,
             createdAt: formattedDate,
+            bgColor: bgColor,
           };
         });
         // Reverse the order of blogs after formatting
@@ -105,6 +110,7 @@ const ProjectList = () => {
                     status={project.status}
                     projectLink={project.projectLink}
                     handleDelete={() => handleDelete(project._id)}
+                    color={project.bgColor}
                     // createdAt={blog.createdAt}
                   />
                 ))}

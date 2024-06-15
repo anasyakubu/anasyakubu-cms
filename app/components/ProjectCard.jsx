@@ -6,7 +6,15 @@ import Image from "next/image";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 
-const ProjectCards = ({ projectImage, name, details, status, projectLink }) => {
+const ProjectCards = ({
+  projectImage,
+  name,
+  details,
+  status,
+  projectLink,
+  handleDelete,
+  id,
+}) => {
   return (
     <div className="ProjectCards">
       <div className="p-2 m-2">
@@ -52,14 +60,12 @@ const ProjectCards = ({ projectImage, name, details, status, projectLink }) => {
             </div>
             <div className="mt-3 flex justify-between">
               <button className="">
-                <Link className="text-white" href="/">
+                <Link className="text-white" href={`${id}`}>
                   <FaEdit />
                 </Link>
               </button>
-              <button className="">
-                <Link className="text-white" href="/">
-                  <MdDelete />
-                </Link>
+              <button onClick={handleDelete} className="text-white">
+                <MdDelete />
               </button>
             </div>
           </div>

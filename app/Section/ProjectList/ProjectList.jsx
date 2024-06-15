@@ -66,6 +66,23 @@ const ProjectList = () => {
   // Calculate total pages
   const totalPages = Math.ceil(BiLogoSlack.length / projectsPerPage);
 
+  const handleDelete = (id) => {
+    console.log("deleting...", id);
+    if (confirm("Do you want to delete this Projects")) {
+      alert("Deleted");
+      axios
+        .delete("https://anasyakubu-cms-api.onrender.com/deleteProject" + id)
+        .then((res) => {
+          console.log(res);
+          alert("Project deleted successfully");
+          window.location.reload();
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert("Cancel successfully");
+    }
+  };
+
   return (
     <div className="ProjectList">
       <div className="py-5 p-32">
@@ -81,11 +98,13 @@ const ProjectList = () => {
                 {currentProjects.map((project) => (
                   <ProjectCards
                     key={project._id}
+                    id={project._id}
                     projectImage={project.projectImage}
                     name={project.name}
                     details={project.details}
                     status={project.status}
                     projectLink={project.projectLink}
+                    handleDelete={() => handleDelete(project._id)}
                     // createdAt={blog.createdAt}
                   />
                 ))}

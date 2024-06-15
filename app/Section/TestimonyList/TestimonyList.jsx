@@ -68,13 +68,13 @@ const TestimonyList = () => {
 
   const handleDelete = (id) => {
     console.log("deleting...", id);
-    if (confirm("Do you want to delete this post")) {
+    if (confirm("Do you want to delete this Testimony")) {
       alert("Deleted");
       axios
         .delete("https://anasyakubu-cms-api.onrender.com/deleteTestimony" + id)
         .then((res) => {
           console.log(res);
-          alert("Post deleted successfully");
+          alert("Testimony deleted successfully");
           window.location.reload();
         })
         .catch((err) => console.log(err));

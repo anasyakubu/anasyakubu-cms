@@ -4,6 +4,7 @@ import Image from "next/image";
 import HeroImage from "../../Assets/Banner-1.png";
 import Link from "next/link";
 import "./Hero.scss";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Hero = () => {
   return (
@@ -30,18 +31,23 @@ const Hero = () => {
               </p>
 
               <ul className="list mt-5 text-sm">
-                <li>All-in-one knowledge and work management</li>
                 <li>Increase efficiency with automation and reporting</li>
                 <li>Standardize and scale project management best practices</li>
               </ul>
 
-              <div className="mt-6 button">
-                <Link
-                  href="/sign-in"
-                  className="btn p-2 text-sm bg-black text-white pr-5 pl-5 outline-none border border-black rounded-lg shadow-lg"
-                >
-                  Manage Your Projects
-                </Link>
+              <SignedOut>
+                <div className="mt-6 button">
+                  <Link
+                    href="/Projects"
+                    className="btn p-2 text-sm bg-black text-white pr-5 pl-5 outline-none border border-black rounded-lg shadow-lg"
+                  >
+                    Manage Your Projects
+                  </Link>
+                </div>
+              </SignedOut>
+
+              <div className="mt-5">
+                <UserButton />
               </div>
             </div>
             {/*  */}

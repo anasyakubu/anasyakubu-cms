@@ -71,7 +71,7 @@ const ProjectList = () => {
     if (confirm("Do you want to delete this Projects")) {
       alert("Deleted");
       axios
-        .delete("https://anasyakubu-cms-api.onrender.com/deleteProject" + id)
+        .delete("https://anasyakubu-cms-api.onrender.com/deleteProject/" + id)
         .then((res) => {
           console.log(res);
           alert("Project deleted successfully");

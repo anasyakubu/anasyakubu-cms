@@ -56,6 +56,7 @@ const ProjectForm = () => {
         alert("Project added Successfully");
         router.push("/Projects");
         formRef.current.reset(); // Reset the form here
+        window.location.reload();
       }
     } catch (error) {
       console.log("Error:", error);

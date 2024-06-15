@@ -55,6 +55,7 @@ const TestimonyForm = () => {
         alert("Testimony added Successfully");
         router.push("/Testimony");
         formRef.current.reset(); // Reset the form here
+        window.location.reload();
       }
     } catch (error) {
       console.log("Error:", error);

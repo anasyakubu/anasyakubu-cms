@@ -4,6 +4,7 @@ import axios from "axios";
 import ProjectCards from "../../components/ProjectCard";
 import "./ProjectList.scss";
 import { BiLogoSlack } from "react-icons/bi";
+import Skeleton from "../../components/Skeleton";
 
 const ProjectList = () => {
   const [loading, setLoading] = useState(false);
@@ -74,9 +75,7 @@ const ProjectList = () => {
         <div className="mt-5">
           <div className="">
             {loading ? (
-              <div className="flex justify-center">
-                <div className="spinner">Loading</div>
-              </div>
+              <Skeleton />
             ) : (
               <div className="p-1 space-y-2 lg:grid lg:grid-cols-4 lg:gap-x-6 lg:space-y-0">
                 {currentProjects.map((project) => (

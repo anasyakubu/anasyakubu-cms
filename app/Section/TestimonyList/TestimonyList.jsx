@@ -65,6 +65,24 @@ const TestimonyList = () => {
 
   // Calculate total pages
   const totalPages = Math.ceil(BiLogoSlack.length / testimonyPerPage);
+
+  const handleDelete = (id) => {
+    console.log("deleting...", id);
+    if (confirm("Do you want to delete this post")) {
+      alert("Deleted");
+      axios
+        .delete("https://anasyakubu-cms-api.onrender.com/deleteTestimony" + id)
+        .then((res) => {
+          console.log(res);
+          alert("Post deleted successfully");
+          window.location.reload();
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert("Cancel successfully");
+    }
+  };
+
   return (
     <div className="TestimonyList">
       <div className="py-5 p-32">
@@ -88,9 +106,7 @@ const TestimonyList = () => {
                   userTitle={testimony.userTitle}
                   testimony={testimony.testimony}
                   id={testimony._id}
-                  handleDelete={() => {
-                    alert("Delete Disable");
-                  }}
+                  handleDelete={() => handleDelete(testimony._id)}
                   // createdAt={blog.createdAt}
                 />
               ))}

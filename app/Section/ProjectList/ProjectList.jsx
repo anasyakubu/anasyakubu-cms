@@ -10,7 +10,7 @@ const ProjectList = () => {
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 30; // Number of tasks per page
+  const projectsPerPage = 8; // Number of tasks per page
 
   useEffect(() => {
     setLoading(true);
@@ -52,7 +52,7 @@ const ProjectList = () => {
   }, []);
   // Add empty dependency array to ensure useEffect runs only once
 
-  // Calculate the current tasks to display
+  // Calculate the current projects to display
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
   const currentProjects = projects.slice(
@@ -64,7 +64,7 @@ const ProjectList = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Calculate total pages
-  const totalPages = Math.ceil(BiLogoSlack.length / projectsPerPage);
+  const totalPages = Math.ceil(projects.length / projectsPerPage);
 
   const handleDelete = (id) => {
     console.log("deleting...", id);
@@ -113,7 +113,7 @@ const ProjectList = () => {
             {/* <ProjectCards name={} details={} live={}  projectLink={} /> */}
           </div>
           {/* Pagination Controls */}
-          <div className="mt-10 flex justify-center">
+          <div className="mt-5 flex justify-center">
             {Array.from({ length: totalPages }, (_, index) => (
               <button
                 key={index}

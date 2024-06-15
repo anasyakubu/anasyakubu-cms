@@ -10,7 +10,7 @@ const TestimonyList = () => {
   const [loading, setLoading] = useState(false);
   const [testimonys, setTestimonys] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const testimonyPerPage = 30; // Number of tasks per page
+  const testimonyPerPage = 6; // Number of tasks per page
 
   useEffect(() => {
     setLoading(true);
@@ -52,19 +52,19 @@ const TestimonyList = () => {
   }, []);
   // Add empty dependency array to ensure useEffect runs only once
 
-  // Calculate the current tasks to display
-  const indexOfLastTestimony = currentPage * testimonyPerPage;
-  const indexOfFirstTestimony = indexOfLastTestimony - testimonyPerPage;
+  // Calculate the current projects to display
+  const indexOfLastProject = currentPage * testimonyPerPage;
+  const indexOfFirstProject = indexOfLastProject - testimonyPerPage;
   const currentTestimony = testimonys.slice(
-    indexOfFirstTestimony,
-    indexOfLastTestimony
+    indexOfFirstProject,
+    indexOfLastProject
   );
 
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // Calculate total pages
-  const totalPages = Math.ceil(BiLogoSlack.length / testimonyPerPage);
+  const totalPages = Math.ceil(testimonys.length / testimonyPerPage);
 
   const handleDelete = (id) => {
     console.log("deleting...", id);
@@ -112,7 +112,22 @@ const TestimonyList = () => {
               ))}
             </div>
           )}
-          {/* <ProjectCards name={} details={} live={}  projectLink={} /> */}
+          {/* Pagination Controls */}
+          <div className="mt-5 flex justify-center">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => paginate(index + 1)}
+                className={`px-3 py-1 mx-1 rounded ${
+                  index + 1 === currentPage
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-300"
+                }`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

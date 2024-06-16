@@ -11,7 +11,7 @@ const navigation = [
   { name: "About", href: "/#About" },
   // { name: "Github", href: "https://github.com/anasyakubu", target: "_blank" },
   { name: "Projects", href: "/Projects" },
-  { name: "Contact", href: "#" },
+  { name: "Subscribers", href: "/Subscribers" },
   { name: "Write a Testimony", href: "/Testimony" },
 ];
 
